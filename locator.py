@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[8]:
+# In[13]:
 
 
 import pyspark 
@@ -64,20 +64,9 @@ def get_distance(lon_a, lat_a, lon_b, lat_b):
 def string_to_float(x): 
     return float(x)
 
-
 #User-Defined Functions Here
 udf_string_to_float = udf(string_to_float, StringType())
 udf_get_distance = F.udf(get_distance)
-
-
-# In[ ]:
-
-
-
-
-
-# In[9]:
-
 
 def get_isolated_stores_per_country(df_stores, country_name):
     #df_starbucks_au = filter_data(df_starbucks_stores_with_country_name, 'Country', country_name )
@@ -135,10 +124,6 @@ def get_most_isolated_store_per_country(df, country):
         "nearest_distance_km": out_df[0]['min_nearest_distance']
     }
 
-
-# In[10]:
-
-
 def get_store_count_per_country(df):
     
     df_stores_agg = df.groupBy("Country_Name").agg(F.count("Store Number").alias('Store_Count')).orderBy(col("Store_Count"))
@@ -167,9 +152,7 @@ def get_countries_with_least_starbucks_stores(df):
     
     return countries_with_least_stores_df.collect()
 
-
-# In[ ]:
-
-
-
+def merge_dataset(old_df, new_df, merge_key):
+    df_joined = old_df.join(new_df,old_df[merge_key] == new_df[merge_key], how='left')
+    return df_joined
 
