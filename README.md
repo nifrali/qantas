@@ -3,6 +3,7 @@
 ## Description:
 
 *Exercise
+
 Write clean Pyspark code to answer any two of the following questions. 
 Please refrain from using embedded queries in the code. Pyspark.sql.functions is preferred over sql queries.
 
@@ -35,6 +36,7 @@ This is a public dataset which includes a record for every Starbucks or subsidia
   3. source python3_env/bin/activate
 
 ## Spark Settings
+
 `export JAVA_HOME=(/usr/libexec/java_home -v 1.8)`
 `export SPARK_PATH=/Users/francisco.liwa/spark-2.4.4-bin-hadoop2.7`
 `export PYSPARK_DRIVER_PYTHON="jupyter"`
@@ -66,7 +68,7 @@ This is a public dataset which includes a record for every Starbucks or subsidia
     ![Solution1](solution_no_1.png)
 2.  Question #2
     ![Solution2](solution_no_2.png)   
-	
+
 ### Author
     fliwa_2019
 
